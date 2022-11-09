@@ -109,16 +109,28 @@
 
 # 2) вивести на екран пустий квадрат з "*" сторона якого вказана як агрумент функції
 #
-a = 18
-b = 19
+# a = 18
+# b = 19
+#
+# for c in range(a):
+#     for k in range(b):
+#         if c == 0 or c == a - 1:
+#             print("* ", end="")
+#         else:
+#             if k < 1 or k == b - 1:
+#                 print("*", end=" ")
+#             else:
+#                 print("  ", end="")
+
+
+a = 9
+b = 9
+count = 1
+count1 = 0
 
 for c in range(a):
-    for k in range(b):
-        if c == 0 or c == a - 1:
-            print("* ", end="")
-        else:
-            if k < 1 or k == b - 1:
-                print("*", end=" ")
-            else:
-                print("  ", end="")
+    for k in range(1, 10 + (9*count1), count):
+        print(k + (count - 1), end=" ")
     print()
+    count += 1
+    count1 += 1
