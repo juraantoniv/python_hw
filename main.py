@@ -1,136 +1,46 @@
-# 1)написати прогу яка вибирає зі введеної строки цифри і виводить їх через кому,
 
-# st = 'as 23 fdfdg544'
-# new = ''
+# 3) створити функцію котра буде повертати сумму розрядів числа у вигляді строки (також використовуемо типізацію)
 #
-# for i in st:
-#     if i.isdigit():
-#         new += i +','
-# print(new)
-
+# Приклад:
 #
-# st = 'as 23 fdfdg544 34'
-# q = ''.join(i for i in st if not i.isalpha())
-# print(q.split())
+# expanded_form(12) # return '10 + 2'
+# expanded_form(42) # return '40 + 2'
+# expanded_form(70304) # return '70000 + 300 + 4'
+
+def decor(func):
+    count = 0
+
+    def inner(*a):
+        nonlocal count
+        count += 1
+        func(*a)
+        return count
+
+    return inner
+
+l:int = 5470304159688
+
+str2:str = ''
 
 
-# list comprehension
-#
-# 1)є строка:
-# greeting = 'Hello, world'
-#
-# print(list(greeting.upper()))
-# ---------------------------------
-# 2) з диапозону від 0-50 записати тільки не парні числа при цьому піднести їх до квадрату
-# приклад:
-# [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, ...]
-# for i in range(0,50):
-#     if pow(i,2)%2==0:
-#         print(pow(i,2))
+@decor
+def expanded_form(item_number: str):
+    global str2
+    st: str = str(item_number)
+    for i in range(len(st)):
+        number:str = st[i]
+        if int(number) != 0:
+            str1 = str(number) + (len(st) - i - 1) * '0'
+            str2 += str1 + '+'
+    return str2[:-1]
 
 
-# function
-#
-# - створити функцію яка виводить ліст
-# - створити функцію яка приймає три числа та виводить та повертає найбільше.
-# - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше
-# - створити функцію яка повертає найбільше число з ліста
-# - створити функцію яка повертає найменьше число з ліста
-# - створити функцію яка приймає ліст чисел та складає значення елементів ліста та повертає його.
-# - створити функцію яка приймає ліст чисел та повертає середнє арифметичне його значень.
 
-# def lis(str):
-#     print(list(str))
-# lis(greeting)
-# ---------------
-
-# def m(a,b,c):
-#     print(max(a,b,c))
-#     return max(a,b,c)
-#
-# m(15,16,25)
-# -------------------
-# def ar(*args):
-#     print(max(args))
-#     return min(args)
-#
-# ar(55,22,11,66)
-# ---------------------
-# def ar(*args):
-#     return min(list(args))
-# print(ar(4, 9, 4, 7))
-# ----------------------
-# def ar(*args):
-#     return max(list(args))
-# print(ar(4, 9, 4, 7))
-# -----------------------
-# def ar(*args):
-#     return sum(list(args))
-# print(ar(4, 9, 4, 7))
-# ------------------------
-# def ar(*args):
-#     return sum(list(args))/len(args)
-# print(ar(4, 9, 4, 7))
-
-# 1)Дан list:
-#   list = [22, 3,5,2,8,2,-23, 8,23,5]
-#   - знайти мін число
-#   - видалити усі дублікати
-#   - замінити кожне 4-те значення на 'X'
-# 2) вивести на екран пустий квадрат з "*" сторона якого вказана як агрумент функції
-# 3) вывести табличку множення за допомогою цикла while
-# 4) переробити це завдання під меню
-
-# list = [22, 3,5,2,8,2,-23, 8,23,5]
-# min=22
-#
-# for i in range(len(list)):
-#     if min>list[i]:
-#         min=list[i]
-#
-# print(min)
-# ---------------------------
-# list = [22, 3,5,2,8,2,-23, 8,23,5]
-#
-# temp = []
-# for x in list:
-#     if x not in temp:
-#         temp.append(x)
-#
-# print(temp)
-
-# list = [22, 3, 5, 2, 8, 2, -23, 8, 23, 5]
-#
-# temp = []
-# for x in range(len(list)):
-#     if x == 4 or x == 8:
-#         print(list[x])
+print(expanded_form(l))
+print(expanded_form(l))
+print(expanded_form(l))
+print(expanded_form(l))
 
 
-# 2) вивести на екран пустий квадрат з "*" сторона якого вказана як агрумент функції
-#
-# a = 18
-# b = 19
-#
-# for c in range(a):
-#     for k in range(b):
-#         if c == 0 or c == a - 1:
-#             print("* ", end="")
-#         else:
-#             if k < 1 or k == b - 1:
-#                 print("*", end=" ")
-#             else:
-#                 print("  ", end="")
 
 
-a = 9
-b = 9
-count = 1
-count1 = 0
-
-for c in range(a):
-    for k in range(1, 10 + (9*count1), count):
-        print(k + (count - 1), end=" ")
-    print()
-    count += 1
-    count1 += 1
