@@ -13,19 +13,20 @@ def decor(func):
     def inner(*a):
         nonlocal count
         count += 1
-        func(*a)
+        print(func(*a))
         return count
 
     return inner
 
+
 l:int = 5470304159688
 
-str2:str = ''
+
 
 
 @decor
 def expanded_form(item_number: str):
-    global str2
+    str2:str = ''
     st: str = str(item_number)
     for i in range(len(st)):
         number:str = st[i]
@@ -35,8 +36,8 @@ def expanded_form(item_number: str):
     return str2[:-1]
 
 
+# 4) створити декоратор котрий буде підраховувати скільки разів була запущена функція продекорована цим декоратором, та буде виводити це значення після виконання функцій
 
-print(expanded_form(l))
 print(expanded_form(l))
 print(expanded_form(l))
 print(expanded_form(l))
